@@ -1,9 +1,10 @@
 name: Generate GIFs
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       resolution:
+        description: karakara
         required: true
         type: string
 
