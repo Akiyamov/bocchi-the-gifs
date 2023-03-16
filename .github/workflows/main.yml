@@ -14,4 +14,10 @@ jobs:
          chmod +x script.sh
          ./script.sh
         shell: bash
+      - name: Temp folder
+        run: |
+          mkdir gifs
+          mv *.gif gifs
       - uses: actions/upload-artifact@v3
+        with:
+          path: gif
