@@ -18,6 +18,8 @@ jobs:
         run: |
           mkdir gifs
           mv *.gif gifs
+          ls
+          ls gifs
       - uses: actions/upload-artifact@v3
         with:
           path: gif
