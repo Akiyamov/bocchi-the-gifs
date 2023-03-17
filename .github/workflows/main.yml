@@ -32,18 +32,10 @@ jobs:
         run: |
           mkdir gifs
           mv *.gif gifs
-      - uses: Roang-zero1/github-create-release-action@v2
-        with:
-          created_tag: gif
+      - name: Release
+        uses: fnkr/github-action-ghr@v1
+        if: startsWith(github.ref, 'refs/tags/')
         env:
+          GHR_COMPRESS: zip
+          GHR_PATH: gifs
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      - uses: actions/upload-artifact@v3
-        with:
-          name: "GIFs"
-          path: gifs
-      - uses: Roang-zero1/github-upload-release-artifacts-action@v2
-        with:
-          created_tag: gif
-          args: "gifs"
-        env:
-            GITHUB_TOKEN: ${{ secrets.TOKEN }}
