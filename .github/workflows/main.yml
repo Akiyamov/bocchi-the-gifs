@@ -34,7 +34,7 @@ jobs:
           mv *.gif gifs
       - uses: Roang-zero1/github-create-release-action@v2
         with:
-          created_tag: '${{ inputs.resolution }}'
+          created_tag: gif
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - uses: actions/upload-artifact@v3
