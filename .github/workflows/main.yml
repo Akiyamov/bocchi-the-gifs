@@ -43,6 +43,7 @@ jobs:
           path: gifs
       - uses: Roang-zero1/github-upload-release-artifacts-action@v2
         with:
+          created_tag: gif
           args: "gifs"
         env:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
