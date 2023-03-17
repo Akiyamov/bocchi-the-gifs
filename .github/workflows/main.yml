@@ -35,8 +35,11 @@ jobs:
       - uses: Roang-zero1/github-create-release-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      - name: Upload release artifacts
-        uses: Roang-zero1/github-upload-release-artifacts-action@v2
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "GIFs ${{ inputs.resolution }}"
+          path: gifs
+      - uses: Roang-zero1/github-upload-release-artifacts-action@v2
         with:
           args: "gifs"
         env:
