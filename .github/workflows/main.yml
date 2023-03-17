@@ -36,7 +36,7 @@ jobs:
       - name: Create release
         uses: Roang-zero1/github-create-release-action@v3
         with:
-          created_tag: 'v${{ inputs.resolution }}'
+          created_tag: gif
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - uses: Roang-zero1/github-upload-release-artifacts-action@v3.0.0
