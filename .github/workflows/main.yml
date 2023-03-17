@@ -31,14 +31,8 @@ jobs:
       - name: Temp folder
         run: |
           mkdir gifs
-          zip gifki.zip *.gif
-          mv gifki.zip gifs
-      - name: Create release
-        uses: Roang-zero1/github-create-release-action@v3
-        with:
-          created_tag: gif
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          zip ${{ github.workflow_sha }}.zip *.gif
+          mv ${{ github.workflow_sha }}.zip gifs
       - uses: Roang-zero1/github-upload-release-artifacts-action@v3.0.0
         with:
           created_tag: gif
