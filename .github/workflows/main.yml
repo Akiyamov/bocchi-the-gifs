@@ -39,7 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - uses: actions/upload-artifact@v3
         with:
-          name: "GIFs ${{ inputs.resolution }}"
+          name: "GIFs"
           path: gifs
       - uses: Roang-zero1/github-upload-release-artifacts-action@v2
         with:
