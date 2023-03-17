@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-#      - name: Download from S3
-#        env:
-#          AWS_ACCESS_KEY_ID: ${{ secrets.s3_key_id }}
-#          AWS_SECRET_ACCESS_KEY: ${{ secrets.s3_secret_key }}
-#          AWS_DEFAULT_REGION: ru-central1
-#          AWS_EC2_METADATA_DISABLED: true
-#        run: |
-#          aws s3 sync ${{ secrets.bucket_name }} . --endpoint-url=https://storage.yandexcloud.net
+      - name: Download from S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.s3_key_id }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.s3_secret_key }}
+          AWS_DEFAULT_REGION: ru-central1
+          AWS_EC2_METADATA_DISABLED: true
+        run: |
+          aws s3 sync ${{ secrets.bucket_name }} . --endpoint-url=https://storage.yandexcloud.net
       - uses: FedericoCarboni/setup-ffmpeg@v2
         id: setup-ffmpeg
       - name: Run script file
