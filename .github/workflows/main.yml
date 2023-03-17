@@ -32,6 +32,8 @@ jobs:
         run: |
           mkdir gifs
           mv *.gif gifs
-      - uses: actions/upload-artifact@v3
-        with:
-          path: gifs
+      - uses: fnkr/github-action-ghr@v1
+        env:
+          GHR_COMPRESS: zip
+          GHR_PATH: gifs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
