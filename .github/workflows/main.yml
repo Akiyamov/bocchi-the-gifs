@@ -31,14 +31,7 @@ jobs:
       - name: Temp folder
         run: |
           mkdir gifs
-          zip ${{ github.workflow_sha }}.zip *.gif
-          mv ${{ github.workflow_sha }}.zip gifs
-      - uses: Roang-zero1/github-upload-release-artifacts-action@v3.0.0
-        with:
-          created_tag: gif
-          args: gifs
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          mv *.gif gifs
       - uses: actions/upload-artifact@v3
         with:
           path: gifs
