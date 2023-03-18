@@ -1,4 +1,5 @@
 #!/bin/bash
+# http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
 for name in *.mp4; do
 	palette="/tmp/palette.png"
 	filters="fps=15,scale=$1:flags=lanczos"
