@@ -35,7 +35,7 @@ jobs:
           mv ${{ github.workflow_sha }}.zip gifs
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/gif')
         with:
           files: gifs/${{ github.workflow_sha }}.zip
 #      - uses: Roang-zero1/github-upload-release-artifacts-action@v3.0.0
