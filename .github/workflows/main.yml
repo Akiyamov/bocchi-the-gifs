@@ -39,3 +39,6 @@ jobs:
           args: gifs
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - uses: actions/upload-artifact@v3
+        with:
+          path: gifs
