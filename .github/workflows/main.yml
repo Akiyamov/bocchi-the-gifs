@@ -8,13 +8,12 @@ on:
         required: true
         type: string
 
-
 jobs:
   transcode:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Download from S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.s3_key_id }}
@@ -24,7 +23,7 @@ jobs:
         run: |
           aws s3 sync ${{ secrets.bucket_name }} . --endpoint-url=https://storage.yandexcloud.net
       - name: Setup ffmpeg 
-      - uses: FedericoCarboni/setup-ffmpeg@v2
+        uses: FedericoCarboni/setup-ffmpeg@v2
         id: setup-ffmpeg
       - name: Run ffmpeg script
         run: |
