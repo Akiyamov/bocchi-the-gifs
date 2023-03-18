@@ -12,6 +12,7 @@ jobs:
   transcode:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
       - uses: actions/checkout@v3
       - name: Download from S3
         env:
@@ -21,18 +22,20 @@ jobs:
           AWS_EC2_METADATA_DISABLED: true
         run: |
           aws s3 sync ${{ secrets.bucket_name }} . --endpoint-url=https://storage.yandexcloud.net
+      - name: Setup ffmpeg 
       - uses: FedericoCarboni/setup-ffmpeg@v2
         id: setup-ffmpeg
-      - name: Run script file
+      - name: Run ffmpeg script
         run: |
          chmod +x script.sh
          ./script.sh ${{ inputs.resolution }}
         shell: bash
-      - name: Temp folder
+      - name: Pack gifs
         run: |
           mkdir gifs
           zip ${{ github.workflow_sha }}.zip *.gif
           mv ${{ github.workflow_sha }}.zip gifs
+      - name: Release
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
