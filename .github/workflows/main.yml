@@ -36,7 +36,7 @@ jobs:
           zip ${{ github.workflow_sha }}.zip *.gif
           mv ${{ github.workflow_sha }}.zip gifs
       - name: Release
-      - uses: "marvinpinto/action-automatic-releases@latest"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
