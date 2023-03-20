@@ -1,4 +1,4 @@
-name: Generate GIFs
+name: Generate ${{ inputs.resolution }} GIFs
 
 on:
   workflow_dispatch:
