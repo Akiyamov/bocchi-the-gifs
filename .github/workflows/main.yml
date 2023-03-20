@@ -1,4 +1,4 @@
-name: Generate ${{ inputs.resolution }} GIFs
+name: Generate GIFs
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
       - name: Setup ffmpeg 
         uses: FedericoCarboni/setup-ffmpeg@v2
         id: setup-ffmpeg
-      - name: Run ffmpeg script
+      - name: Run ffmpeg script with resolution ${{ inputs.resolution }}
         run: |
          chmod +x script.sh
          ./script.sh ${{ inputs.resolution }}
